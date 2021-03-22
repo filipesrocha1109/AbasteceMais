@@ -1,0 +1,6 @@
+C:\Users\Filipe\source\repos\AbasteceMais\AbasteceMais.CrossCutting\bin\Debug\AbasteceMais.CrossCutting.dll
+C:\Users\Filipe\source\repos\AbasteceMais\AbasteceMais.CrossCutting\bin\Debug\AbasteceMais.CrossCutting.pdb
+C:\Users\Filipe\source\repos\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.csprojAssemblyReference.cache
+C:\Users\Filipe\source\repos\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\source\repos\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.dll
+C:\Users\Filipe\source\repos\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.pdb
