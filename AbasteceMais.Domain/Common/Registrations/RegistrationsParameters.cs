@@ -20,6 +20,9 @@ namespace AbasteceMais.Domain.Common.Registrations
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'CPFCNPJ' is required")]
         public string CPFCNPJ { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Phone' is required")]
+        public string Phone { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Password' is required")]
         public string Password { get; set; }
 
@@ -60,6 +63,9 @@ namespace AbasteceMais.Domain.Common.Registrations
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'CPFCNPJ' is required")]
         public string CPFCNPJ { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Phone' is required")]
+        public string Phone { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Password' is required")]
         public string Password { get; set; }

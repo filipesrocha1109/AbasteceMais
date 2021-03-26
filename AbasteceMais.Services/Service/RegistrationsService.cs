@@ -41,6 +41,7 @@ namespace AbasteceMais.Services.Service
                     Name = row.Name,
                     Email = row.Email,
                     CPFCNPJ = row.CPFCNPJ,
+                    Phone = row.Phone,
                     Username = row.Username,
                     Password = row.Password,
                     CEP = row.CEP,
@@ -89,6 +90,7 @@ namespace AbasteceMais.Services.Service
                     Name = registration.Name,
                     Email = registration.Email,
                     CPFCNPJ = registration.CPFCNPJ,
+                    Phone = registration.Phone,
                     Username = registration.Username,
                     Password = registration.Password,
                     CEP = registration.CEP,
@@ -141,6 +143,7 @@ namespace AbasteceMais.Services.Service
                     Name = registration.Name,
                     Email = registration.Email,
                     CPFCNPJ = registration.CPFCNPJ,
+                    Phone = registration.Phone,
                     Username = registration.Username,
                     Password = registration.Password,
                     CEP = registration.CEP,
@@ -185,6 +188,7 @@ namespace AbasteceMais.Services.Service
                             Name = registrationsParametersCreate.Name,
                             Email = registrationsParametersCreate.Email,
                             CPFCNPJ = registrationsParametersCreate.CPFCNPJ,
+                            Phone = registrationsParametersCreate.Phone,
                             Username = registrationsParametersCreate.Email,
                             Password = Utils.Encrypt(registrationsParametersCreate.Password),
                             CEP = registrationsParametersCreate.CEP,
@@ -208,6 +212,7 @@ namespace AbasteceMais.Services.Service
                             Name = registration.Name,
                             Email = registration.Email,
                             CPFCNPJ = registration.CPFCNPJ,
+                            Phone = registration.Phone,
                             Username = registration.Username,
                             Password = registration.Password,
                             CEP = registration.CEP,
@@ -260,6 +265,7 @@ namespace AbasteceMais.Services.Service
                 registration.Name = usersParametersUpdate.Name;
                 registration.Email = usersParametersUpdate.Email;
                 registration.CPFCNPJ = usersParametersUpdate.CPFCNPJ;
+                registration.Phone = usersParametersUpdate.Phone;
                 registration.Password = Utils.Encrypt(usersParametersUpdate.Password);
                 registration.CEP = usersParametersUpdate.CEP;
                 registration.Address = usersParametersUpdate.Address;
@@ -279,6 +285,7 @@ namespace AbasteceMais.Services.Service
                     Name = registration.Name,
                     Email = registration.Email,
                     CPFCNPJ = registration.CPFCNPJ,
+                    Phone = registration.Phone,
                     Username = registration.Username,
                     Password = registration.Password,
                     CEP = registration.CEP,

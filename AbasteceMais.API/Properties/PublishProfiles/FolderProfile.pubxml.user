@@ -5,14 +5,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\Filipe\Desktop\web</_PublishTargetUrl>
-    <History>True|2021-03-25T18:50:24.6829337Z;True|2021-03-25T14:11:42.6733700-03:00;True|2021-03-24T23:09:28.7154056-03:00;True|2021-03-24T22:48:58.7851232-03:00;True|2021-03-24T22:40:55.9786288-03:00;True|2021-03-24T22:34:27.9995131-03:00;True|2021-03-24T22:26:11.3878882-03:00;True|2021-03-24T22:25:32.6126488-03:00;True|2021-03-24T22:22:54.7112534-03:00;True|2021-03-24T22:18:35.1456947-03:00;True|2021-03-24T22:16:01.5826772-03:00;True|2021-03-24T22:03:39.8748192-03:00;True|2021-03-24T21:34:21.0561407-03:00;True|2021-03-24T21:18:30.7838123-03:00;True|2021-03-24T21:18:05.2178245-03:00;True|2021-03-24T20:43:36.3184099-03:00;True|2021-03-24T20:29:50.4085473-03:00;</History>
+    <History>True|2021-03-26T14:06:26.0534126Z;True|2021-03-25T15:50:24.6829337-03:00;True|2021-03-25T14:11:42.6733700-03:00;True|2021-03-24T23:09:28.7154056-03:00;True|2021-03-24T22:48:58.7851232-03:00;True|2021-03-24T22:40:55.9786288-03:00;True|2021-03-24T22:34:27.9995131-03:00;True|2021-03-24T22:26:11.3878882-03:00;True|2021-03-24T22:25:32.6126488-03:00;True|2021-03-24T22:22:54.7112534-03:00;True|2021-03-24T22:18:35.1456947-03:00;True|2021-03-24T22:16:01.5826772-03:00;True|2021-03-24T22:03:39.8748192-03:00;True|2021-03-24T21:34:21.0561407-03:00;True|2021-03-24T21:18:30.7838123-03:00;True|2021-03-24T21:18:05.2178245-03:00;True|2021-03-24T20:43:36.3184099-03:00;True|2021-03-24T20:29:50.4085473-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AbasteceMais.API.dll">
-      <publishTime>03/25/2021 15:50:23</publishTime>
+      <publishTime>03/26/2021 11:00:45</publishTime>
     </File>
     <File Include="bin/AbasteceMais.API.pdb">
-      <publishTime>03/25/2021 15:50:23</publishTime>
+      <publishTime>03/26/2021 11:00:45</publishTime>
     </File>
     <File Include="bin/AbasteceMais.CrossCutting.dll">
       <publishTime>03/24/2021 22:47:23</publishTime>
@@ -21,28 +21,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/24/2021 22:47:23</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Data.dll">
-      <publishTime>03/25/2021 15:50:20</publishTime>
+      <publishTime>03/26/2021 11:00:42</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Data.dll.config">
       <publishTime>03/21/2021 22:15:17</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Data.pdb">
-      <publishTime>03/25/2021 15:50:20</publishTime>
+      <publishTime>03/26/2021 11:00:42</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Domain.dll">
-      <publishTime>03/25/2021 15:50:19</publishTime>
+      <publishTime>03/26/2021 11:00:41</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Domain.dll.config">
       <publishTime>03/21/2021 22:01:08</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Domain.pdb">
-      <publishTime>03/25/2021 15:50:19</publishTime>
+      <publishTime>03/26/2021 11:00:41</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Services.dll">
-      <publishTime>03/25/2021 15:50:21</publishTime>
+      <publishTime>03/26/2021 11:00:43</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Services.pdb">
-      <publishTime>03/25/2021 15:50:21</publishTime>
+      <publishTime>03/26/2021 11:00:43</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
@@ -558,7 +558,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/21/2021 21:43:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/24/2021 22:48:57</publishTime>
+      <publishTime>03/26/2021 11:06:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

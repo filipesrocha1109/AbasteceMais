@@ -23,6 +23,9 @@ namespace AbasteceMais.Domain.Entities
         [StringLength(50)]
         public string CPFCNPJ { get; set; }
 
+        [StringLength(20)]
+        public string Phone { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Username { get; set; }
