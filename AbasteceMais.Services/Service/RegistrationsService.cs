@@ -125,12 +125,12 @@ namespace AbasteceMais.Services.Service
                 registration = _unitOfWork.RegistrationRepository.Get(row => row.Username == registrationsParametersPassword.UserName);
                 if (registration == null)
                 {
-                    returnValues.SetReturnValues(true, ErrorCodes.InvalidUser, Utils.GetEnumDescription(ErrorCodes.InvalidUser));
+                    returnValues.SetReturnValues(true, ErrorCodes.InvalidUserPassword, Utils.GetEnumDescription(ErrorCodes.InvalidUserPassword));
                     return registrationsDTO;
                 }
                 if (registration.Password != registrationsParametersPassword.Password)
                 {
-                    returnValues.SetReturnValues(true, ErrorCodes.InvalidPassword, Utils.GetEnumDescription(ErrorCodes.InvalidPassword));
+                    returnValues.SetReturnValues(true, ErrorCodes.InvalidUserPassword, Utils.GetEnumDescription(ErrorCodes.InvalidUserPassword));
                     return registrationsDTO;
                 }
 

@@ -44,7 +44,10 @@ namespace AbasteceMais.Domain.Enums
         InvalidType = -13,
 
         [Description("user already registered")]
-        UserExist = -14
+        UserExist = -14,
+
+        [Description("Invalid username or password")]
+        InvalidUserPassword = -15,
 
     }
 }

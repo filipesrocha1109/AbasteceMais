@@ -23,7 +23,7 @@ namespace AbasteceMais.API.Controllers
         #region PUBLIC_METHODS
 
 
-        [HttpPost]
+        [HttpGet]
         [Route("GetRegistrations")]
         public IHttpActionResult GetRegistrations([FromBody] RegistrationsParametersGetAll registrationsParametersGetAll)
         {
@@ -51,7 +51,7 @@ namespace AbasteceMais.API.Controllers
             });
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("GetRegistrationsByID")]
         public IHttpActionResult GetUsGetRegistrationsByIDerID([FromBody] RegistrationsParametersID registrationsParametersID)
         {
@@ -85,7 +85,7 @@ namespace AbasteceMais.API.Controllers
         }
 
         [HttpPost]
-        [Route("GetRegistrationsByPassword")]
+        [Route("LoginRegistrations")]
         public IHttpActionResult GetRegistrationsByPassword([FromBody] RegistrationsParametersPassword registrationsParametersPassword)
         {
             if (registrationsParametersPassword != null && ModelState.IsValid)
@@ -151,7 +151,7 @@ namespace AbasteceMais.API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("UpdateRegistrationsbyID")]
         public IHttpActionResult UpdateRegistrationsbyID([FromBody] RegistrationsParametersUpdate usersParametersUpdate)
         {
@@ -185,7 +185,7 @@ namespace AbasteceMais.API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("DeleteRegistrationsByID")]
         public IHttpActionResult DeleteRegistrationsByID([FromBody] RegistrationsParametersID registrationsParametersID)
         {

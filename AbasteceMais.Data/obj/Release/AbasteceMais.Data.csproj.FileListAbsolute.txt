@@ -1,0 +1,15 @@
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\AbasteceMais.Data.dll.config
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\AbasteceMais.Data.dll
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\AbasteceMais.Data.pdb
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\AbasteceMais.Domain.dll
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\EntityFramework.dll
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\AbasteceMais.Domain.pdb
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\AbasteceMais.Domain.dll.config
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\EntityFramework.xml
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\obj\Release\AbasteceMais.Data.csprojAssemblyReference.cache
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\obj\Release\AbasteceMais.Data.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\obj\Release\AbasteceMais.Data.csproj.CopyComplete
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\obj\Release\AbasteceMais.Data.dll
+C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Data\obj\Release\AbasteceMais.Data.pdb
