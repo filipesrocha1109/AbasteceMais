@@ -26,6 +26,13 @@ namespace AbasteceMais.Domain.Interfaces.Services
         RegistrationsDTO DeleteRegistrationsByID(RegistrationsParametersID registrationsParametersID, out ReturnValues returnValues);
 
 
+        IList<StatesDTO> GetStates(StateParametersGetAll stateParametersGetAll, out ReturnValues returnValues);
+
+        IList<CitysDTO> GetCitys(CityParametersGetAll cityParametersGetAll, out ReturnValues returnValues);
+
+        IList<DistrictsDTO> GetDistricts(DistrictParametersGetAll districtParametersGetAll, out ReturnValues returnValues);
+
+
 
     }
 }

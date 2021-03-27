@@ -19,6 +19,12 @@ namespace AbasteceMais.Data.UnitOfWork
 
         private IGenericRepository<Registration> _registrationRepository;
 
+        private IGenericRepository<City> _citynRepository;
+
+        private IGenericRepository<District> _districtRepository;
+
+        private IGenericRepository<State> _stateRepository;
+
         private bool disposed = false;
 
         public UnitOfWork(DatabaseContextAbasteceMais contextAbasteceMais)
@@ -29,6 +35,21 @@ namespace AbasteceMais.Data.UnitOfWork
         public IGenericRepository<Registration> RegistrationRepository
         {
             get { return _registrationRepository ?? (_registrationRepository = new GenericRepository<Registration>(_contextAbasteceMais)); }
+        }
+
+        public IGenericRepository<City> CityRepository
+        {
+            get { return _citynRepository ?? (_citynRepository = new GenericRepository<City>(_contextAbasteceMais)); }
+        }
+
+        public IGenericRepository<District> DistrictRepository
+        {
+            get { return _districtRepository ?? (_districtRepository = new GenericRepository<District>(_contextAbasteceMais)); }
+        }
+
+        public IGenericRepository<State> StateRepository
+        {
+            get { return _stateRepository ?? (_stateRepository = new GenericRepository<State>(_contextAbasteceMais)); }
         }
 
 

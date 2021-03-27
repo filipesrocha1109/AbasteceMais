@@ -98,4 +98,18 @@ namespace AbasteceMais.Domain.Common.Registrations
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Password' is required")]
         public string Password { get; set; }
     }
+
+    public class DistrictParametersGetAll
+    {
+
+    }
+
+    public class CityParametersGetAll
+    {
+
+    }
+    public class StateParametersGetAll
+    {
+
+    }
 }

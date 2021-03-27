@@ -346,6 +346,88 @@ namespace AbasteceMais.Services.Service
             return registrationsDTO;
         }
 
+        public IList<StatesDTO> GetStates(StateParametersGetAll stateParametersGetAll, out ReturnValues returnValues)
+        {
+            IList<StatesDTO> statesDTO = null;
+            returnValues = new ReturnValues();
+
+            try
+            {
+                var query = _unitOfWork.StateRepository.QueryableObject();
+
+                statesDTO = query.Select(row => new StatesDTO()
+                {
+                    Name = row.Name,
+
+
+                }).ToList();
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+            }
+
+            return statesDTO as IList<StatesDTO>;
+        }
+
+        public IList<CitysDTO> GetCitys(CityParametersGetAll cityParametersGetAll, out ReturnValues returnValues)
+        {
+            IList<CitysDTO> citysDTO = null;
+            returnValues = new ReturnValues();
+
+            try
+            {
+                var query = _unitOfWork.CityRepository.QueryableObject();
+
+                citysDTO = query.Select(row => new CitysDTO()
+                {
+                    Name = row.Name,
+
+
+                }).ToList();
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+            }
+
+            return citysDTO as IList<CitysDTO>;
+        }
+
+        public IList<DistrictsDTO> GetDistricts(DistrictParametersGetAll districtParametersGetAll, out ReturnValues returnValues)
+        {
+            IList<DistrictsDTO> districtsDTO = null;
+            returnValues = new ReturnValues();
+
+            try
+            {
+                var query = _unitOfWork.DistrictRepository.QueryableObject();
+
+                districtsDTO = query.Select(row => new DistrictsDTO()
+                {
+                    Name = row.Name,
+
+
+                }).ToList();
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+            }
+
+            return districtsDTO as IList<DistrictsDTO>;
+        }
+
+
+
+
+
         #endregion
 
         #region PRIVATE_METHODS

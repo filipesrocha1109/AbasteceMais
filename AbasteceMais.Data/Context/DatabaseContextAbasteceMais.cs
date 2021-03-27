@@ -22,6 +22,12 @@ namespace AbasteceMais.Data.Context
 
         public virtual DbSet<Registration> Registrations { get; set; }
 
+        public virtual DbSet<City> Cities { get; set; }
+
+        public virtual DbSet<District> Districts { get; set; }
+
+        public virtual DbSet<State> States { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

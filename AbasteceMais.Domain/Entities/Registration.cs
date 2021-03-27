@@ -49,7 +49,7 @@ namespace AbasteceMais.Domain.Entities
         [StringLength(100)]
         public string City { get; set; }
 
-        [StringLength(2)]
+        [StringLength(100)]
         public string State { get; set; }
 
         [Required]

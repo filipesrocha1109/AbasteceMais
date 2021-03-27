@@ -219,6 +219,90 @@ namespace AbasteceMais.API.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetStates")]
+        public IHttpActionResult GetStates([FromBody] StateParametersGetAll stateParametersGetAll)
+        {
+
+            IList<StatesDTO> statesDTO = _registrationsservice.GetStates(stateParametersGetAll, out ReturnValues returnValues);
+            if (!returnValues.Error)
+            {
+                return Ok(new ResponseSuccess
+                {
+                    Success = true,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message,
+                    Data = new
+                    {
+                        listStates = statesDTO
+                    }
+                });
+            }
+
+            return Ok(new ResponseError
+            {
+                Success = false,
+                Status = Convert.ToInt32(returnValues.Code),
+                Message = returnValues.Message
+            });
+        }
+
+        [HttpGet]
+        [Route("GetCitys")]
+        public IHttpActionResult GetCitys([FromBody] CityParametersGetAll cityParametersGetAll)
+        {
+
+            IList<CitysDTO> citysDTO = _registrationsservice.GetCitys(cityParametersGetAll, out ReturnValues returnValues);
+            if (!returnValues.Error)
+            {
+                return Ok(new ResponseSuccess
+                {
+                    Success = true,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message,
+                    Data = new
+                    {
+                        listCitys = citysDTO
+                    }
+                });
+            }
+
+            return Ok(new ResponseError
+            {
+                Success = false,
+                Status = Convert.ToInt32(returnValues.Code),
+                Message = returnValues.Message
+            });
+        }
+
+        [HttpGet]
+        [Route("GetDistricts")]
+        public IHttpActionResult GetDistricts([FromBody] DistrictParametersGetAll districtParametersGetAll)
+        {
+
+            IList<DistrictsDTO> districtsDTO = _registrationsservice.GetDistricts(districtParametersGetAll, out ReturnValues returnValues);
+            if (!returnValues.Error)
+            {
+                return Ok(new ResponseSuccess
+                {
+                    Success = true,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message,
+                    Data = new
+                    {
+                        listDistricts = districtsDTO
+                    }
+                });
+            }
+
+            return Ok(new ResponseError
+            {
+                Success = false,
+                Status = Convert.ToInt32(returnValues.Code),
+                Message = returnValues.Message
+            });
+        }
+
 
         #endregion
     }

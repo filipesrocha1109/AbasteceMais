@@ -12,6 +12,12 @@ namespace AbasteceMais.Domain.Interfaces.UnitOfWork
     {
         IGenericRepository<Registration> RegistrationRepository { get; }
 
+        IGenericRepository<State> StateRepository { get;  }
+
+        IGenericRepository<City> CityRepository { get; }
+
+        IGenericRepository<District> DistrictRepository { get; }
+
         void PersistChanges();
 
         void Dispose();
