@@ -142,6 +142,7 @@
     <Compile Include="App_Start\DependencyInjectionConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Auth\WebApiAuthenticate.cs" />
+    <Compile Include="Controllers\GasStationsController.cs" />
     <Compile Include="Controllers\RegistrationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

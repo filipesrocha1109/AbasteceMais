@@ -28,9 +28,25 @@ namespace AbasteceMais.Data.Context
 
         public virtual DbSet<State> States { get; set; }
 
+        public virtual DbSet<GasStation> GasStations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<GasStation>()
+                .Property(e => e.PriceGasolinaComum)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<GasStation>()
+                .Property(e => e.PriceGasolinaAditivada)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<GasStation>()
+                .Property(e => e.PriceDisel)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<GasStation>()
+                .Property(e => e.PriceGas)
+                .HasPrecision(19, 4);
         }
     }
 }

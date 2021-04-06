@@ -18,6 +18,9 @@ namespace AbasteceMais.Domain.Interfaces.UnitOfWork
 
         IGenericRepository<District> DistrictRepository { get; }
 
+        IGenericRepository<GasStation> GasStationRepository { get; }
+
+
         void PersistChanges();
 
         void Dispose();

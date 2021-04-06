@@ -53,7 +53,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetRegistrationsByID")]
-        public IHttpActionResult GetUsGetRegistrationsByIDerID([FromBody] RegistrationsParametersID registrationsParametersID)
+        public IHttpActionResult GetRegistrationsByID([FromBody] RegistrationsParametersID registrationsParametersID)
         {
             if (registrationsParametersID != null && ModelState.IsValid)
             {

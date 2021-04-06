@@ -36,13 +36,13 @@ namespace AbasteceMais.Domain.Common.Registrations
         public string Number { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'District' is required")]
-        public string District { get; set; }
+        public string DistrictID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'City' is required")]
-        public string City { get; set; }
+        public string CityID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'State' is required")]
-        public string State { get; set; }
+        public string StateID { get; set; }
 
     }
     public class RegistrationsParametersGetAll
@@ -80,13 +80,13 @@ namespace AbasteceMais.Domain.Common.Registrations
         public string Number { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'District' is required")]
-        public string District { get; set; }
+        public string DistrictID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'City' is required")]
-        public string City { get; set; }
+        public string CityID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'State' is required")]
-        public string State { get; set; }
+        public string StateID { get; set; }
 
     }
 

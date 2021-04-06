@@ -35,6 +35,8 @@ namespace AbasteceMais.API
 
             containerBuilder.RegisterType<RegistrationsService>().As<IRegistrationsService>();
 
+            containerBuilder.RegisterType<GasStationsService>().As<IGasStationsService>();
+
 
             //// OPTIONAL: Register the Autofac filter provider.
             //builder.RegisterWebApiFilterProvider(config);

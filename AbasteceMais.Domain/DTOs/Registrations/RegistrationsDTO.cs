@@ -24,11 +24,11 @@
 
         public string Number { get; set; }
 
-        public string District { get; set; }
+        public string DistrictID { get; set; }
 
-        public string City { get; set; }
+        public string CityID { get; set; }
 
-        public string State { get; set; }
+        public string StateID { get; set; }
 
         public string Type { get; set; }
 

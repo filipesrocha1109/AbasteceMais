@@ -50,21 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GasStations\GasStationsParameters.cs" />
     <Compile Include="Common\ReturnValues.cs" />
     <Compile Include="Common\ResponseSuccess.cs" />
     <Compile Include="Common\ResponseError.cs" />
     <Compile Include="Common\Config.cs" />
     <Compile Include="Common\Registrations\RegistrationsParameters.cs" />
+    <Compile Include="DTOs\GasStation\GasStationsDTO.cs" />
     <Compile Include="DTOs\Registrations\DistrictsDTO.cs" />
     <Compile Include="DTOs\Registrations\SatatesDTO.cs" />
     <Compile Include="DTOs\Registrations\CitysDTO.cs" />
     <Compile Include="DTOs\Registrations\RegistrationsDTO.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\District.cs" />
+    <Compile Include="Entities\GasStation.cs" />
     <Compile Include="Entities\Registration.cs" />
     <Compile Include="Entities\State.cs" />
     <Compile Include="Enums\ErrorCodes.cs" />
     <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
+    <Compile Include="Interfaces\Services\IGasStationsService.cs" />
     <Compile Include="Interfaces\Services\IRegistrationsService.cs" />
     <Compile Include="Interfaces\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

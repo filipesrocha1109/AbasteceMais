@@ -47,9 +47,9 @@ namespace AbasteceMais.Services.Service
                     CEP = row.CEP,
                     Address = row.Address,
                     Number = row.Number,
-                    District = row.District,
-                    City = row.City,
-                    State = row.State,
+                    DistrictID = row.DistrictID,
+                    CityID = row.CityID,
+                    StateID = row.StateID,
                     Type = row.Type,
                     CreatedOn = row.CreatedOn.ToString(),
                     UpdatedOn = row.UpdatedOn.ToString()
@@ -96,9 +96,9 @@ namespace AbasteceMais.Services.Service
                     CEP = registration.CEP,
                     Address = registration.Address,
                     Number = registration.Number,
-                    District = registration.District,
-                    City = registration.City,
-                    State = registration.State,
+                    DistrictID = registration.DistrictID,
+                    CityID = registration.CityID,
+                    StateID = registration.StateID,
                     Type = registration.Type,
                     CreatedOn = registration.CreatedOn.ToString(),
                     UpdatedOn = registration.UpdatedOn.ToString()
@@ -149,9 +149,9 @@ namespace AbasteceMais.Services.Service
                     CEP = registration.CEP,
                     Address = registration.Address,
                     Number = registration.Number,
-                    District = registration.District,
-                    City = registration.City,
-                    State = registration.State,
+                    DistrictID = registration.DistrictID,
+                    CityID = registration.CityID,
+                    StateID = registration.StateID,
                     Type = registration.Type,
                     CreatedOn = registration.CreatedOn.ToString(),
                     UpdatedOn = registration.UpdatedOn.ToString()
@@ -194,9 +194,9 @@ namespace AbasteceMais.Services.Service
                             CEP = registrationsParametersCreate.CEP,
                             Address = registrationsParametersCreate.Address,
                             Number = registrationsParametersCreate.Number,
-                            District = registrationsParametersCreate.District,
-                            City = registrationsParametersCreate.City,
-                            State = registrationsParametersCreate.State,
+                            DistrictID = registrationsParametersCreate.DistrictID,
+                            CityID = registrationsParametersCreate.CityID,
+                            StateID = registrationsParametersCreate.StateID,
                             Type = "CLI",
                             CreatedOn = DateTime.Now
 
@@ -218,9 +218,9 @@ namespace AbasteceMais.Services.Service
                             CEP = registration.CEP,
                             Address = registration.Address,
                             Number = registration.Number,
-                            District = registration.District,
-                            City = registration.City,
-                            State = registration.State,
+                            DistrictID = registration.DistrictID,
+                            CityID = registration.CityID,
+                            StateID = registration.StateID,
                             Type = registration.Type,
                             CreatedOn = registration.CreatedOn.ToString(),
                             UpdatedOn = registration.UpdatedOn.ToString()
@@ -270,9 +270,9 @@ namespace AbasteceMais.Services.Service
                 registration.CEP = usersParametersUpdate.CEP;
                 registration.Address = usersParametersUpdate.Address;
                 registration.Number = usersParametersUpdate.Number;
-                registration.District = usersParametersUpdate.District;
-                registration.City = usersParametersUpdate.City;
-                registration.State = usersParametersUpdate.State;
+                registration.DistrictID = usersParametersUpdate.DistrictID;
+                registration.CityID = usersParametersUpdate.CityID;
+                registration.StateID = usersParametersUpdate.StateID;
                 registration.UpdatedOn = DateTime.Now;
 
                 _unitOfWork.RegistrationRepository.Update(registration);
@@ -291,9 +291,9 @@ namespace AbasteceMais.Services.Service
                     CEP = registration.CEP,
                     Address = registration.Address,
                     Number = registration.Number,
-                    District = registration.District,
-                    City = registration.City,
-                    State = registration.State,
+                    DistrictID = registration.DistrictID,
+                    CityID = registration.CityID,
+                    StateID = registration.StateID,
                     Type = registration.Type,
                     CreatedOn = registration.CreatedOn.ToString(),
                     UpdatedOn = registration.UpdatedOn.ToString()
@@ -357,8 +357,8 @@ namespace AbasteceMais.Services.Service
 
                 statesDTO = query.Select(row => new StatesDTO()
                 {
-                    Name = row.Name,
-
+                    ID = row.Id,
+                    Name = row.Name
 
                 }).ToList();
 
@@ -383,6 +383,7 @@ namespace AbasteceMais.Services.Service
 
                 citysDTO = query.Select(row => new CitysDTO()
                 {
+                    ID = row.Id,
                     Name = row.Name,
 
 
@@ -409,6 +410,7 @@ namespace AbasteceMais.Services.Service
 
                 districtsDTO = query.Select(row => new DistrictsDTO()
                 {
+                    ID = row.Id,
                     Name = row.Name,
 
 

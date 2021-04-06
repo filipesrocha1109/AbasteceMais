@@ -25,6 +25,8 @@ namespace AbasteceMais.Data.UnitOfWork
 
         private IGenericRepository<State> _stateRepository;
 
+        private IGenericRepository<GasStation> _gasstationRepository;
+
         private bool disposed = false;
 
         public UnitOfWork(DatabaseContextAbasteceMais contextAbasteceMais)
@@ -52,6 +54,10 @@ namespace AbasteceMais.Data.UnitOfWork
             get { return _stateRepository ?? (_stateRepository = new GenericRepository<State>(_contextAbasteceMais)); }
         }
 
+        public IGenericRepository<GasStation> GasStationRepository
+        {
+            get { return _gasstationRepository ?? (_gasstationRepository = new GenericRepository<GasStation>(_contextAbasteceMais)); }
+        }
 
         public void PersistChanges()
         {

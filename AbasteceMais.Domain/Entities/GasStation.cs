@@ -1,12 +1,11 @@
 namespace AbasteceMais.Domain.Entities
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    public partial class Registration
+    [Table("GasStation")]
+    public partial class GasStation
     {
         public int ID { get; set; }
 
@@ -15,24 +14,34 @@ namespace AbasteceMais.Domain.Entities
         [StringLength(100)]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string Email { get; set; }
-
-        [Required]
         [StringLength(50)]
-        public string CPFCNPJ { get; set; }
-
-        [StringLength(20)]
         public string Phone { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Username { get; set; }
+        public bool? GasolinaComum { get; set; }
 
-        [Required]
+        public bool? GasolinaAditivada { get; set; }
+
+        public bool? Disel { get; set; }
+
+        public bool? Gas { get; set; }
+
+        [Column(TypeName = "money")]
+        public decimal? PriceGasolinaComum { get; set; }
+
+        [Column(TypeName = "money")]
+        public decimal? PriceGasolinaAditivada { get; set; }
+
+        [Column(TypeName = "money")]
+        public decimal? PriceDisel { get; set; }
+
+        [Column(TypeName = "money")]
+        public decimal? PriceGas { get; set; }
+
         [StringLength(50)]
-        public string Password { get; set; }
+        public string Latitude { get; set; }
+
+        [StringLength(50)]
+        public string Longitude { get; set; }
 
         [StringLength(50)]
         public string CEP { get; set; }
@@ -49,12 +58,8 @@ namespace AbasteceMais.Domain.Entities
         [StringLength(100)]
         public string CityID { get; set; }
 
-        [StringLength(100)]
+        [StringLength(2)]
         public string StateID { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string Type { get; set; }
 
         public DateTime? CreatedOn { get; set; }
 
