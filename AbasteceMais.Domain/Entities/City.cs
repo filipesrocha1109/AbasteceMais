@@ -14,5 +14,8 @@ namespace AbasteceMais.Domain.Entities
 
         [StringLength(100)]
         public string Name { get; set; }
+
+        [StringLength(50)]
+        public string StateID { get; set; }
     }
 }

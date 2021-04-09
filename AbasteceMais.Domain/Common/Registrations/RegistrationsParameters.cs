@@ -101,12 +101,12 @@ namespace AbasteceMais.Domain.Common.Registrations
 
     public class DistrictParametersGetAll
     {
-
+        public string CityID { get; set; }
     }
 
     public class CityParametersGetAll
     {
-
+        public string StateID { get; set; }
     }
     public class StateParametersGetAll
     {

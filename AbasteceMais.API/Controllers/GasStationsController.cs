@@ -25,7 +25,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetGasStations")]
-        public IHttpActionResult GetGasStations([FromBody] GasStationsParametersGetAll gasStationsParametersGetAll)
+        public IHttpActionResult GetGasStations([FromUri] GasStationsParametersGetAll gasStationsParametersGetAll)
         {
 
             IList<GasStationsDTO> gasStationsDTO = _gasstationsservice.GetGasStations(gasStationsParametersGetAll, out ReturnValues returnValues);
@@ -53,7 +53,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetGasStationsByID")]
-        public IHttpActionResult GetGasStationsByID([FromBody] GasStationsParametersID gasStationsParametersID)
+        public IHttpActionResult GetGasStationsByID([FromUri] GasStationsParametersID gasStationsParametersID)
         {
             if (gasStationsParametersID != null && ModelState.IsValid)
             {

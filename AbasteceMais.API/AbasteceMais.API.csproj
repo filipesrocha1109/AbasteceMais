@@ -166,6 +166,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Homolog.pubxml" />
+    <None Include="Properties\PublishProfiles\WebDesktop.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbasteceMais.CrossCutting\AbasteceMais.CrossCutting.csproj">

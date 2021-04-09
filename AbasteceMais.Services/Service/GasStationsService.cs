@@ -34,6 +34,116 @@ namespace AbasteceMais.Services.Service
             {
                 var query = _unitOfWork.GasStationRepository.QueryableObject();
 
+                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Name))
+                {
+                    query = query.Where(row => row.Name.Contains(gasStationsParametersGetAll.Name));
+                }
+
+                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.TypeGas))
+                {
+                    switch (gasStationsParametersGetAll.TypeGas)
+                    {
+                        case "Gasolina Comum":
+                            query = query.Where(row => row.GasolinaComum == true);
+                            break;
+                        case "Gasolina Aditivada":
+                            query = query.Where(row => row.GasolinaAditivada == true);
+                            break;
+                        case "Disel":
+                            query = query.Where(row => row.Disel == true);
+                            break;
+                        case "Gás":
+                            query = query.Where(row => row.Gas == true);
+                            break;
+                       
+                    }
+                }
+
+                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.DistrictID))
+                {
+                    query = query.Where(row => row.DistrictID == gasStationsParametersGetAll.DistrictID);
+                }
+                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Order))
+                {
+                    switch (gasStationsParametersGetAll.Order)
+                    {
+                        case "More Relevant":
+                            query = query.OrderBy(row => row.GasolinaComum);
+                            break;
+
+                        case "Highest Price":
+
+                            if (!String.IsNullOrEmpty(gasStationsParametersGetAll.TypeGas))
+                            {
+                                switch (gasStationsParametersGetAll.TypeGas)
+                                {
+                                    case "Gasolina Comum":
+                                        query = query.OrderByDescending(row => row.PriceGasolinaComum);
+                                        break;
+                                    case "Gasolina Aditivada":
+                                        query = query.OrderByDescending(row => row.PriceGasolinaAditivada);
+                                        break;
+                                    case "Disel":
+                                        query = query.OrderByDescending(row => row.PriceDisel);
+                                        break;
+                                    case "Gás":
+                                        query = query.OrderByDescending(row => row.PriceGas);
+                                        break;
+                                    default:
+                                        query = query.OrderByDescending(row => row.PriceGasolinaComum);
+                                        break;
+
+                                }
+                            }
+                            else
+                            {
+                                query = query.OrderByDescending(row => row.PriceGasolinaComum);
+                            }
+
+                            break;
+
+                        case "Lower Price":
+
+                            if (!String.IsNullOrEmpty(gasStationsParametersGetAll.TypeGas))
+                            {
+                                switch (gasStationsParametersGetAll.TypeGas)
+                                {
+                                    case "Gasolina Comum":
+                                        query = query.OrderBy(row => row.PriceGasolinaComum);
+                                        break;
+                                    case "Gasolina Aditivada":
+                                        query = query.OrderBy(row => row.PriceGasolinaAditivada);
+                                        break;
+                                    case "Disel":
+                                        query = query.OrderBy(row => row.PriceDisel);
+                                        break;
+                                    case "Gás":
+                                        query = query.OrderBy(row => row.PriceGas);
+                                        break;
+                                    default:
+                                        query = query.OrderBy(row => row.PriceGasolinaComum);
+                                        break;
+
+                                }
+                            }
+                            else
+                            {
+                                query = query.OrderBy(row => row.PriceGasolinaComum);
+                            }
+
+                            break;
+
+                        default:
+                            query = query.OrderBy(row => row.PriceGasolinaComum);
+                            break;
+
+                    }
+                }
+                else
+                {
+                    query = query.OrderBy(row => row.PriceGasolinaComum);
+                }
+
                 gasStationsDTO = query.Select(row => new GasStationsDTO()
                 {
                     ID = row.ID.ToString(),

@@ -377,17 +377,24 @@ namespace AbasteceMais.Services.Service
             IList<CitysDTO> citysDTO = null;
             returnValues = new ReturnValues();
 
+            var StateID = String.IsNullOrEmpty(cityParametersGetAll.StateID) ? "" : cityParametersGetAll.StateID;
+
             try
             {
                 var query = _unitOfWork.CityRepository.QueryableObject();
 
-                citysDTO = query.Select(row => new CitysDTO()
+                if (!String.IsNullOrEmpty(StateID))
                 {
-                    ID = row.Id,
-                    Name = row.Name,
+                    citysDTO = query
+                    .Where(row => row.StateID == StateID)
+                    .Select(row => new CitysDTO()
+                    {
+                        ID = row.Id,
+                        Name = row.Name,
 
 
-                }).ToList();
+                    }).ToList();
+                }
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }
@@ -404,17 +411,24 @@ namespace AbasteceMais.Services.Service
             IList<DistrictsDTO> districtsDTO = null;
             returnValues = new ReturnValues();
 
+            var CityID = String.IsNullOrEmpty(districtParametersGetAll.CityID) ? "" : districtParametersGetAll.CityID;
+
             try
             {
                 var query = _unitOfWork.DistrictRepository.QueryableObject();
 
-                districtsDTO = query.Select(row => new DistrictsDTO()
+                if (!String.IsNullOrEmpty(CityID))
                 {
-                    ID = row.Id,
-                    Name = row.Name,
+                    districtsDTO = query
+                    .Where(row => row.CityID == CityID)
+                    .Select(row => new DistrictsDTO()
+                    {
+                        ID = row.Id,
+                        Name = row.Name,
 
 
-                }).ToList();
+                    }).ToList();
+                }
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }

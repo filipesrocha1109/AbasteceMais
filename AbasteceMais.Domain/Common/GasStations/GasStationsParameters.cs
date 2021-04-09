@@ -10,7 +10,13 @@ namespace AbasteceMais.Domain.Common.GasStations
 
     public class GasStationsParametersGetAll
     {
+        public string Name { get; set; }
 
+        public string TypeGas { get; set; }
+
+        public string DistrictID { get; set; }
+
+        public string Order { get; set; }
     }
 
     public class GasStationsParametersCreate

@@ -249,7 +249,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetCitys")]
-        public IHttpActionResult GetCitys([FromBody] CityParametersGetAll cityParametersGetAll)
+        public IHttpActionResult GetCitys([FromUri] CityParametersGetAll cityParametersGetAll)
         {
 
             IList<CitysDTO> citysDTO = _registrationsservice.GetCitys(cityParametersGetAll, out ReturnValues returnValues);
@@ -277,7 +277,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetDistricts")]
-        public IHttpActionResult GetDistricts([FromBody] DistrictParametersGetAll districtParametersGetAll)
+        public IHttpActionResult GetDistricts([FromUri] DistrictParametersGetAll districtParametersGetAll)
         {
 
             IList<DistrictsDTO> districtsDTO = _registrationsservice.GetDistricts(districtParametersGetAll, out ReturnValues returnValues);
