@@ -9,7 +9,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.API\Properties\PublishProfiles\FolderProfile1.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.API\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

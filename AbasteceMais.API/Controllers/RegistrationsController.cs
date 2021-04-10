@@ -25,7 +25,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetRegistrations")]
-        public IHttpActionResult GetRegistrations([FromBody] RegistrationsParametersGetAll registrationsParametersGetAll)
+        public IHttpActionResult GetRegistrations([FromUri] RegistrationsParametersGetAll registrationsParametersGetAll)
         {
 
             IList<RegistrationsDTO> registrationsDTO = _registrationsservice.GetRegistrations(registrationsParametersGetAll, out ReturnValues returnValues);
@@ -53,7 +53,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpGet]
         [Route("GetRegistrationsByID")]
-        public IHttpActionResult GetRegistrationsByID([FromBody] RegistrationsParametersID registrationsParametersID)
+        public IHttpActionResult GetRegistrationsByID([FromUri] RegistrationsParametersID registrationsParametersID)
         {
             if (registrationsParametersID != null && ModelState.IsValid)
             {
@@ -187,7 +187,7 @@ namespace AbasteceMais.API.Controllers
 
         [HttpDelete]
         [Route("DeleteRegistrationsByID")]
-        public IHttpActionResult DeleteRegistrationsByID([FromBody] RegistrationsParametersID registrationsParametersID)
+        public IHttpActionResult DeleteRegistrationsByID([FromUri] RegistrationsParametersID registrationsParametersID)
         {
             if (registrationsParametersID != null && ModelState.IsValid)
             {
