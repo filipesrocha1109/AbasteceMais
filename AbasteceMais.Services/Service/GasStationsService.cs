@@ -169,7 +169,7 @@ namespace AbasteceMais.Services.Service
                     CreatedOn = row.CreatedOn.ToString(),
                     UpdatedOn = row.UpdatedOn.ToString()
 
-                }).ToList();
+                }).Take(20).ToList();
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }

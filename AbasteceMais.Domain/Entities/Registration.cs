@@ -12,6 +12,7 @@ namespace AbasteceMais.Domain.Entities
 
         public bool? Status { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
 
@@ -19,7 +20,6 @@ namespace AbasteceMais.Domain.Entities
         [StringLength(100)]
         public string Email { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string CPFCNPJ { get; set; }
 
@@ -49,7 +49,7 @@ namespace AbasteceMais.Domain.Entities
         [StringLength(100)]
         public string CityID { get; set; }
 
-        [StringLength(100)]
+        [StringLength(2)]
         public string StateID { get; set; }
 
         [Required]

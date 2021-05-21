@@ -10,3 +10,15 @@ C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Services\obj\Re
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.csproj.CopyComplete
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.dll
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.Services.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.Services.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.CrossCutting.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.Domain.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.CrossCutting.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.Domain.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\AbasteceMais.Domain.dll.config
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.csprojAssemblyReference.cache
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.csproj.CopyComplete
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.pdb

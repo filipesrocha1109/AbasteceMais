@@ -34,3 +34,15 @@ C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.csproj.CopyComplete
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.dll
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\AbasteceMais.Domain.dll.config
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\AbasteceMais.Domain.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\AbasteceMais.Domain.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.csproj.CopyComplete
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Domain\obj\Debug\AbasteceMais.Domain.csprojAssemblyReference.cache

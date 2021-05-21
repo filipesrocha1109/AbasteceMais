@@ -16,3 +16,8 @@ C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.dll
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.pdb
 C:\Users\Filipe\source\repos\FACULDADE\AbasteceMaisSSH\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.csprojAssemblyReference.cache
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\bin\Debug\AbasteceMais.CrossCutting.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\bin\Debug\AbasteceMais.CrossCutting.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.pdb

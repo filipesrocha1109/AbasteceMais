@@ -176,8 +176,7 @@ namespace AbasteceMais.Services.Service
 
             #endregion
 
-            if (!RegistrationExistCPFCNPJ(registrationsParametersCreate.CPFCNPJ))
-            {
+            
                 if (!RegistrationExistEmail(registrationsParametersCreate.Email))
                 {
                     try
@@ -237,11 +236,6 @@ namespace AbasteceMais.Services.Service
                 {
                     returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.UserExist));
                 }
-            }
-            else
-            {
-                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.UserExist));
-            }
 
             return registrationsDTO;
         }
