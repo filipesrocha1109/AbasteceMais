@@ -22,5 +22,20 @@ namespace AbasteceMais.Domain.Interfaces.Services
         ////DELETE
         GasStationsDTO DeleteGasStationsByID(GasStationsParametersID gasStationsParametersID, out ReturnValues returnValues);
 
+        ////CREATE ASSESSMENT
+        AssessmentsDTO CreateAssessments(AssessmentsParametersCreate assessmentsParametersCreate, out ReturnValues returnValues);
+
+        ////CREATE comments
+        CommentsDTO CreateComments(CommentsParametersCreate commentsParametersCreate, out ReturnValues returnValues);
+
+        ////DELETE comments
+        CommentsDTO DeleteCommentsByID(CommentsParametersDelete commentsParametersDelete, out ReturnValues returnValues);
+
+        ////GET comments
+        IList<CommentsDTO> GetComments(CommentsGetParameters commentsGetParameters, out ReturnValues returnValues);
+
+        ////GET stars
+        StarsDTO GetGasStationStarts(GasStationsParametersID gasStationsParametersID, out ReturnValues returnValues);
+
     }
 }

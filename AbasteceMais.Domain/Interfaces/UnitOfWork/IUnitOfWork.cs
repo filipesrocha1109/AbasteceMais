@@ -20,6 +20,9 @@ namespace AbasteceMais.Domain.Interfaces.UnitOfWork
 
         IGenericRepository<GasStation> GasStationRepository { get; }
 
+        IGenericRepository<Assessment> AssessmentRepository { get; }
+
+        IGenericRepository<Comment> CommentRepository { get; }
 
         void PersistChanges();
 

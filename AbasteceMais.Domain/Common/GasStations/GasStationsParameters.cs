@@ -65,5 +65,70 @@ namespace AbasteceMais.Domain.Common.GasStations
 
     }
 
+    public class AssessmentsParametersCreate
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'RegistrationID' is required")]
+        public string RegistrationID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'GasStationID' is required")]
+        public string GasStationID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Assessment' is required")]
+        public string Assessment { get; set; }
+    }
+
+    public class AssessmentsGetParametersByID
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'ID' is required")]
+        public string ID { get; set; }
+    }
+
+    public class AssessmentsGetParametersByGasStation
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'GasStationID' is required")]
+        public string GasStationID { get; set; }
+    }
+
+    public class CommentsParametersCreate
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'RegistrationID' is required")]
+        public string RegistrationID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'GasStationID' is required")]
+        public string GasStationID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Comment' is required")]
+        public string Comment { get; set; }
+    }
+
+    public class CommentsGetParameters
+    {
+        public string GasStationID { get; set; }
+    }
+
+    public class CommentsGetParametersByID
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'ID' is required")]
+        public string ID { get; set; }
+    }
+
+    public class CommentsGetParametersByGasStation
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'GasStationID' is required")]
+        public string GasStationID { get; set; }
+    }
+
+    public class CommentsParametersDelete
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'ID' is required")]
+        public string ID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'RegistrationID' is required")]
+        public string RegistrationID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'GasStationID' is required")]
+        public string GasStationID { get; set; }
+    }
+
 
 }

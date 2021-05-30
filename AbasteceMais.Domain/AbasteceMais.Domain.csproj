@@ -56,12 +56,17 @@
     <Compile Include="Common\ResponseError.cs" />
     <Compile Include="Common\Config.cs" />
     <Compile Include="Common\Registrations\RegistrationsParameters.cs" />
+    <Compile Include="DTOs\GasStation\StarsDTO.cs" />
+    <Compile Include="DTOs\GasStation\CommentsDTO.cs" />
+    <Compile Include="DTOs\GasStation\AssessmentsDTO.cs" />
     <Compile Include="DTOs\GasStation\GasStationsDTO.cs" />
     <Compile Include="DTOs\Registrations\DistrictsDTO.cs" />
     <Compile Include="DTOs\Registrations\SatatesDTO.cs" />
     <Compile Include="DTOs\Registrations\CitysDTO.cs" />
     <Compile Include="DTOs\Registrations\RegistrationsDTO.cs" />
+    <Compile Include="Entities\Assessment.cs" />
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\District.cs" />
     <Compile Include="Entities\GasStation.cs" />
     <Compile Include="Entities\Registration.cs" />

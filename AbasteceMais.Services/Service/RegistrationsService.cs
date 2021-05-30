@@ -435,9 +435,6 @@ namespace AbasteceMais.Services.Service
         }
 
 
-
-
-
         #endregion
 
         #region PRIVATE_METHODS

@@ -186,6 +186,163 @@ namespace AbasteceMais.API.Controllers
             return BadRequest(ModelState);
         }
 
+        [HttpPost]
+        [Route("CreateAssessment")]
+        public IHttpActionResult CreateAssessment([FromBody] AssessmentsParametersCreate assessmentsParametersCreate)
+        {
+
+            if (assessmentsParametersCreate != null && ModelState.IsValid)
+            {
+                AssessmentsDTO assessmentsDTO = _gasstationsservice.CreateAssessments(assessmentsParametersCreate, out ReturnValues returnValues);
+
+                if (!returnValues.Error)
+                {
+                    return Ok(new ResponseSuccess
+                    {
+                        Success = true,
+                        Status = Convert.ToInt32(returnValues.Code),
+                        Message = returnValues.Message,
+                        Data = new
+                        {
+                            assessments = assessmentsDTO,
+                        },
+                    });
+                }
+
+                return Ok(new ResponseError
+                {
+                    Success = false,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message
+                });
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpGet]
+        [Route("GetComments")]
+        public IHttpActionResult GetComments([FromUri] CommentsGetParameters commentsGetParameters)
+        {
+
+            IList<CommentsDTO> commentsDTO = _gasstationsservice.GetComments(commentsGetParameters, out ReturnValues returnValues);
+            if (!returnValues.Error)
+            {
+                return Ok(new ResponseSuccess
+                {
+                    Success = true,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message,
+                    Data = new
+                    {
+                        comments = commentsDTO
+                    }
+                });
+            }
+
+            return Ok(new ResponseError
+            {
+                Success = false,
+                Status = Convert.ToInt32(returnValues.Code),
+                Message = returnValues.Message
+            });
+        }
+
+        [HttpPost]
+        [Route("CreateComments")]
+        public IHttpActionResult CreateComments([FromBody] CommentsParametersCreate commentsParametersCreate)
+        {
+
+            if (commentsParametersCreate != null && ModelState.IsValid)
+            {
+                CommentsDTO commentsDTO = _gasstationsservice.CreateComments(commentsParametersCreate, out ReturnValues returnValues);
+
+                if (!returnValues.Error)
+                {
+                    return Ok(new ResponseSuccess
+                    {
+                        Success = true,
+                        Status = Convert.ToInt32(returnValues.Code),
+                        Message = returnValues.Message,
+                        Data = new
+                        {
+                            comments = commentsDTO,
+                        },
+                    });
+                }
+
+                return Ok(new ResponseError
+                {
+                    Success = false,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message
+                });
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpDelete]
+        [Route("DeleteComments")]
+        public IHttpActionResult DeleteCommentsByID([FromBody] CommentsParametersDelete commentsParametersDelete)
+        {
+            if (commentsParametersDelete != null && ModelState.IsValid)
+            {
+                CommentsDTO commentsDTO = _gasstationsservice.DeleteCommentsByID(commentsParametersDelete, out ReturnValues returnValues);
+
+                if (!returnValues.Error)
+                {
+                    return Ok(new ResponseSuccess
+                    {
+                        Success = true,
+                        Status = Convert.ToInt32(returnValues.Code),
+                        Message = returnValues.Message,
+                        Data = new
+                        {
+                            CommentsDeletdID = commentsDTO.ID
+                        }
+                    });
+                }
+
+                return Ok(new ResponseError
+                {
+                    Success = false,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message
+                });
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpGet]
+        [Route("GetStars")]
+        public IHttpActionResult GetStars([FromUri] GasStationsParametersID gasStationsParametersID)
+        {
+
+            StarsDTO starsDTO = _gasstationsservice.GetGasStationStarts(gasStationsParametersID, out ReturnValues returnValues);
+            if (!returnValues.Error)
+            {
+                return Ok(new ResponseSuccess
+                {
+                    Success = true,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message,
+                    Data = new
+                    {
+                        stars = starsDTO
+                    }
+                });
+            }
+
+            return Ok(new ResponseError
+            {
+                Success = false,
+                Status = Convert.ToInt32(returnValues.Code),
+                Message = returnValues.Message
+            });
+        }
+
         #endregion
     }
 }

@@ -412,10 +412,264 @@ namespace AbasteceMais.Services.Service
             return gasStationsDTO;
         }
 
+        public AssessmentsDTO CreateAssessments(AssessmentsParametersCreate assessmentsParametersCreate, out ReturnValues returnValues)
+        {
+            #region Parameters
+
+            Assessment assessment;
+            AssessmentsDTO assessmentsDTO = null;
+            returnValues = new ReturnValues();
+            bool edit = EditAssessment(assessmentsParametersCreate.GasStationID, assessmentsParametersCreate.RegistrationID);
+            #endregion
+
+            if (!edit)
+            {
+                try
+                {
+                    assessment = new Assessment()
+                    {
+                        GasStaionID = Convert.ToInt32(assessmentsParametersCreate.GasStationID),
+                        RegistrationID = Convert.ToInt32(assessmentsParametersCreate.RegistrationID),
+                        Assessment1 = Convert.ToBoolean(assessmentsParametersCreate.Assessment),
+                        CreatedOn = DateTime.Now
+
+                    };
+
+                    _unitOfWork.AssessmentRepository.Insert(assessment);
+                    _unitOfWork.PersistChanges();
+
+                    assessmentsDTO = new AssessmentsDTO
+                    {
+                        ID = assessment.ID.ToString(),
+                        GasStaionID = assessment.GasStaionID.ToString(),
+                        RegistrationID = assessment.RegistrationID.ToString(),
+                        Assessment = assessment.Assessment1.ToString(),
+                        CreatedOn = assessment.CreatedOn.ToString(),
+                    };
+
+                    returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+                }
+                catch (Exception ex)
+                {
+                    returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message + " inner --> " + ex.InnerException);
+                }
+            }
+            else
+            {
+                try
+                {
+                    int gasstation = Convert.ToInt32(assessmentsParametersCreate.GasStationID);
+                    int registration = Convert.ToInt32(assessmentsParametersCreate.RegistrationID);
+
+                    assessment = _unitOfWork.AssessmentRepository.Get(row => row.GasStaionID == gasstation  && row.RegistrationID == registration );
+                    
+                    if (assessment == null)
+                    {
+                        returnValues.SetReturnValues(true, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                        return assessmentsDTO;
+                    }
+
+                    assessment.Assessment1 = Convert.ToBoolean(assessmentsParametersCreate.Assessment);
+
+                    _unitOfWork.AssessmentRepository.Update(assessment);
+                    _unitOfWork.PersistChanges();
+
+                    assessmentsDTO = new AssessmentsDTO
+                    {
+                        ID = assessment.ID.ToString(),
+                        GasStaionID = assessment.GasStaionID.ToString(),
+                        RegistrationID = assessment.RegistrationID.ToString(),
+                        Assessment = assessment.Assessment1.ToString(),
+                        CreatedOn = assessment.CreatedOn.ToString(),
+                    };
+
+                    returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+                }
+                catch (Exception ex)
+                {
+                    returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+                }
+            }
+            return assessmentsDTO;
+        }
+
+        public IList<CommentsDTO> GetComments(CommentsGetParameters commentsGetParameters, out ReturnValues returnValues)
+        {
+            IList<CommentsDTO> commentsDTO = null;
+            returnValues = new ReturnValues();
+            int gasstaion;
+
+            try
+            {
+                var query = _unitOfWork.CommentRepository.QueryableObject();
+
+                if(!String.IsNullOrEmpty(commentsGetParameters.GasStationID))
+                {
+                    gasstaion = Convert.ToInt32(commentsGetParameters.GasStationID);
+                    query = query.Where(row => row.GasStaionID == gasstaion);
+                }
+
+                query = query.OrderByDescending(row => row.CreatedOn);
+
+                commentsDTO = query.Select(row => new CommentsDTO()
+                {
+                    ID = row.ID.ToString(),
+                    GasStaionID = row.GasStaionID.ToString(),
+                    RegistrationID = row.RegistrationID.ToString(),
+                    Comment = row.Comment1,
+                    CreatedOn = row.CreatedOn.ToString(),
+
+                }).ToList();
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+            }
+
+            return commentsDTO as IList<CommentsDTO>;
+        }
+
+        public CommentsDTO CreateComments(CommentsParametersCreate commentsParametersCreate, out ReturnValues returnValues)
+        {
+            #region Parameters
+
+            Comment comments;
+            CommentsDTO commentsDTO = null;
+            returnValues = new ReturnValues();
+           
+            #endregion
+
+            try
+            {
+                comments = new Comment()
+                {
+                    GasStaionID = Convert.ToInt32(commentsParametersCreate.GasStationID),
+                    RegistrationID = Convert.ToInt32(commentsParametersCreate.RegistrationID),
+                    Comment1 = commentsParametersCreate.Comment,
+                    CreatedOn = DateTime.Now
+
+                };
+
+                _unitOfWork.CommentRepository.Insert(comments);
+                _unitOfWork.PersistChanges();
+
+                commentsDTO = new CommentsDTO
+                {
+                    ID = comments.ID.ToString(),
+                    GasStaionID = comments.GasStaionID.ToString(),
+                    RegistrationID = comments.RegistrationID.ToString(),
+                    Comment = comments.Comment1,
+                    CreatedOn = comments.CreatedOn.ToString(),
+                };
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message + " inner --> " + ex.InnerException);
+            }
+
+            return commentsDTO;
+        }
+
+        public CommentsDTO DeleteCommentsByID(CommentsParametersDelete commentsParametersDelete, out ReturnValues returnValues)
+        {
+            #region Parameters
+
+            Comment comments;
+            CommentsDTO commentsDTO = null;
+            returnValues = new ReturnValues();
+            int ID = Convert.ToInt32(commentsParametersDelete.ID);
+            int registration = Convert.ToInt32(commentsParametersDelete.RegistrationID);
+            int gasstation = Convert.ToInt32(commentsParametersDelete.GasStationID);
+
+            #endregion
+
+            try
+            {
+                comments = _unitOfWork.CommentRepository.Get(row => row.ID == ID && row.GasStaionID == gasstation && row.RegistrationID == registration);
+                if (comments == null)
+                {
+                    returnValues.SetReturnValues(true, ErrorCodes.NotFound, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                    return commentsDTO;
+                }
+
+                _unitOfWork.CommentRepository.Delete(comments);
+                _unitOfWork.PersistChanges();
+
+                commentsDTO = new CommentsDTO
+                {
+                    ID = comments.ID.ToString(),
+                };
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+            }
+            return commentsDTO;
+
+        }
+
+        public StarsDTO GetGasStationStarts(GasStationsParametersID gasStationsParametersID, out ReturnValues returnValues)
+        {
+            StarsDTO starsDTO = null;
+            returnValues = new ReturnValues();
+
+            int ID = Convert.ToInt32(gasStationsParametersID.ID);
+
+            var countTotal = _unitOfWork.AssessmentRepository.QueryableObject()
+                .Where(row => row.GasStaionID == ID)
+                .Count();
+
+            var countPositive = _unitOfWork.AssessmentRepository.QueryableObject()
+                .Where(row => row.GasStaionID == ID && row.Assessment1 == true )
+                .Count();
+
+            var countNegative = _unitOfWork.AssessmentRepository.QueryableObject()
+                .Where(row => row.GasStaionID == ID && row.Assessment1 == false)
+                .Count();
+
+            starsDTO = new StarsDTO
+            {
+                GasStaionID = ID.ToString(),
+                Total = countTotal.ToString(),
+                Positive = countPositive.ToString(),
+                Negative = countNegative.ToString()
+            };
+
+            return starsDTO;
+        }
+
         #endregion
 
         #region PRIVATE_METHODS
 
+        private bool EditAssessment(string gasStationID, string RegistrationID)
+        {
+            Assessment assessment;
+            int gasstation = Convert.ToInt32(gasStationID);
+            int registration = Convert.ToInt32(RegistrationID);
+
+            bool value;
+
+            assessment = _unitOfWork.AssessmentRepository.Get(row => row.GasStaionID == gasstation && row.RegistrationID == registration);
+
+            if (assessment == null)
+            {
+                value = false;
+            }
+            else
+            {
+                value = true ;
+            }
+
+            return value;
+
+        }
         #endregion
     }
 }

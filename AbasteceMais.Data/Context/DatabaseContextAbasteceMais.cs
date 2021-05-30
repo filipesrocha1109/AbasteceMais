@@ -30,6 +30,10 @@ namespace AbasteceMais.Data.Context
 
         public virtual DbSet<GasStation> GasStations { get; set; }
 
+        public virtual DbSet<Assessment> Assessments { get; set; }
+
+        public virtual DbSet<Comment> Comments { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GasStation>()
