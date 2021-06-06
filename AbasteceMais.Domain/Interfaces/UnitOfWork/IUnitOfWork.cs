@@ -24,6 +24,8 @@ namespace AbasteceMais.Domain.Interfaces.UnitOfWork
 
         IGenericRepository<Comment> CommentRepository { get; }
 
+        IGenericRepository<UpdatePricesGasStation> UpdatePricesGasStationRepository { get; }
+
         void PersistChanges();
 
         void Dispose();

@@ -407,8 +407,8 @@ C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.A
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\bin\EntityFramework.xml
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\bin\EntityFramework.SqlServer.xml
-C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\obj\Release\AbasteceMais.API.csprojAssemblyReference.cache
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\obj\Release\AbasteceMais.API.csproj.CoreCompileInputs.cache
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\obj\Release\AbasteceMais.API.csproj.CopyComplete
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\obj\Release\AbasteceMais.API.dll
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\obj\Release\AbasteceMais.API.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.API\obj\Release\AbasteceMais.API.csproj.AssemblyReference.cache

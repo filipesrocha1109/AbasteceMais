@@ -119,40 +119,6 @@ namespace AbasteceMais.API.Controllers
             return BadRequest(ModelState);
         }
 
-        //[HttpPut]
-        //[Route("UpdateRegistrationsbyID")]
-        //public IHttpActionResult UpdateRegistrationsbyID([FromBody] RegistrationsParametersUpdate usersParametersUpdate)
-        //{
-
-        //    if (usersParametersUpdate != null && ModelState.IsValid)
-        //    {
-        //        RegistrationsDTO registrationsDTO = _registrationsservice.UpdateRegistrationsbyID(usersParametersUpdate, out ReturnValues returnValues);
-
-        //        if (!returnValues.Error)
-        //        {
-        //            return Ok(new ResponseSuccess
-        //            {
-        //                Success = true,
-        //                Status = Convert.ToInt32(returnValues.Code),
-        //                Message = returnValues.Message,
-        //                Data = new
-        //                {
-        //                    Registration = registrationsDTO
-        //                }
-        //            });
-        //        }
-
-        //        return Ok(new ResponseError
-        //        {
-        //            Success = false,
-        //            Status = Convert.ToInt32(returnValues.Code),
-        //            Message = returnValues.Message
-        //        });
-        //    }
-
-        //    return BadRequest(ModelState);
-        //}
-
         [HttpDelete]
         [Route("DeleteGasStationsByID")]
         public IHttpActionResult DeleteGasStationsByID([FromBody] GasStationsParametersID gasStationsParametersID)
@@ -341,6 +307,40 @@ namespace AbasteceMais.API.Controllers
                 Status = Convert.ToInt32(returnValues.Code),
                 Message = returnValues.Message
             });
+        }
+
+        [HttpPut]
+        [Route("UpdatePriceGasStations")]
+        public IHttpActionResult UpdatePriceGasStations([FromBody] UpdatePriicesParameters updatePriicesParameters)
+        {
+
+            if (updatePriicesParameters != null && ModelState.IsValid)
+            {
+                UpdatePricesGasStationDTO updatePricesGasStationDTO = _gasstationsservice.UpdatePriceGasStations(updatePriicesParameters, out ReturnValues returnValues);
+
+                if (!returnValues.Error)
+                {
+                    return Ok(new ResponseSuccess
+                    {
+                        Success = true,
+                        Status = Convert.ToInt32(returnValues.Code),
+                        Message = returnValues.Message,
+                        Data = new
+                        {
+                            UpdatePrice = updatePricesGasStationDTO
+                        }
+                    });
+                }
+
+                return Ok(new ResponseError
+                {
+                    Success = false,
+                    Status = Convert.ToInt32(returnValues.Code),
+                    Message = returnValues.Message
+                });
+            }
+
+            return BadRequest(ModelState);
         }
 
         #endregion

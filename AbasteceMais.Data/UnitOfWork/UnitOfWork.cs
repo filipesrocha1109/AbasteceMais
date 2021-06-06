@@ -31,6 +31,8 @@ namespace AbasteceMais.Data.UnitOfWork
 
         private IGenericRepository<Assessment> _assessmentRepository;
 
+        private IGenericRepository<UpdatePricesGasStation> _updatepricesgasstationRepository;
+
         private bool disposed = false;
 
         public UnitOfWork(DatabaseContextAbasteceMais contextAbasteceMais)
@@ -71,6 +73,11 @@ namespace AbasteceMais.Data.UnitOfWork
         public IGenericRepository<Comment> CommentRepository
         {
             get { return _commentRepository ?? (_commentRepository = new GenericRepository<Comment>(_contextAbasteceMais)); }
+        }
+
+        public IGenericRepository<UpdatePricesGasStation> UpdatePricesGasStationRepository
+        {
+            get { return _updatepricesgasstationRepository ?? (_updatepricesgasstationRepository = new GenericRepository<UpdatePricesGasStation>(_contextAbasteceMais)); }
         }
 
         public void PersistChanges()

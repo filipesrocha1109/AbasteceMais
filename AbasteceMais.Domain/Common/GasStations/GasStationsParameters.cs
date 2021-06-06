@@ -130,5 +130,21 @@ namespace AbasteceMais.Domain.Common.GasStations
         public string GasStationID { get; set; }
     }
 
+    public class UpdatePriicesParameters
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'GasstationID' is required")]
+        public string GasstationID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'RegistrationID' is required")]
+        public string RegistrationID { get; set; }
+
+        public decimal GasolinaComum { get; set; }
+
+        public decimal GasolinaAditivada { get; set; }
+        
+        public decimal Gas { get; set; }
+        
+        public decimal Disel { get; set; }
+    }
 
 }

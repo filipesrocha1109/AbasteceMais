@@ -37,5 +37,8 @@ namespace AbasteceMais.Domain.Interfaces.Services
         ////GET stars
         StarsDTO GetGasStationStarts(GasStationsParametersID gasStationsParametersID, out ReturnValues returnValues);
 
+        ////UPDATE prices
+        UpdatePricesGasStationDTO UpdatePriceGasStations(UpdatePriicesParameters updatePriicesParameters, out ReturnValues returnValues);
+
     }
 }

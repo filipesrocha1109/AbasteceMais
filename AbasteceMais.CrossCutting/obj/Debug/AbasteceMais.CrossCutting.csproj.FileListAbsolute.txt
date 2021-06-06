@@ -21,3 +21,4 @@ C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.C
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.csproj.CoreCompileInputs.cache
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.dll
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.pdb
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.CrossCutting\obj\Debug\AbasteceMais.CrossCutting.csproj.AssemblyReference.cache

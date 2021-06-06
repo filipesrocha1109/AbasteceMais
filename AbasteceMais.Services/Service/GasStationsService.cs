@@ -9,6 +9,8 @@ using AbasteceMais.Domain.Common.GasStations;
 using AbasteceMais.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
+using System.Device.Location;
 
 namespace AbasteceMais.Services.Service
 {
@@ -29,6 +31,8 @@ namespace AbasteceMais.Services.Service
         {
             IList<GasStationsDTO> gasStationsDTO = null;
             returnValues = new ReturnValues();
+
+
 
             try
             {
@@ -63,86 +67,7 @@ namespace AbasteceMais.Services.Service
                 {
                     query = query.Where(row => row.DistrictID == gasStationsParametersGetAll.DistrictID);
                 }
-                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Order))
-                {
-                    switch (gasStationsParametersGetAll.Order)
-                    {
-                        case "More Relevant":
-                            query = query.OrderBy(row => row.GasolinaComum);
-                            break;
-
-                        case "Highest Price":
-
-                            if (!String.IsNullOrEmpty(gasStationsParametersGetAll.TypeGas))
-                            {
-                                switch (gasStationsParametersGetAll.TypeGas)
-                                {
-                                    case "Gasolina Comum":
-                                        query = query.OrderByDescending(row => row.PriceGasolinaComum);
-                                        break;
-                                    case "Gasolina Aditivada":
-                                        query = query.OrderByDescending(row => row.PriceGasolinaAditivada);
-                                        break;
-                                    case "Disel":
-                                        query = query.OrderByDescending(row => row.PriceDisel);
-                                        break;
-                                    case "Gás":
-                                        query = query.OrderByDescending(row => row.PriceGas);
-                                        break;
-                                    default:
-                                        query = query.OrderByDescending(row => row.PriceGasolinaComum);
-                                        break;
-
-                                }
-                            }
-                            else
-                            {
-                                query = query.OrderByDescending(row => row.PriceGasolinaComum);
-                            }
-
-                            break;
-
-                        case "Lower Price":
-
-                            if (!String.IsNullOrEmpty(gasStationsParametersGetAll.TypeGas))
-                            {
-                                switch (gasStationsParametersGetAll.TypeGas)
-                                {
-                                    case "Gasolina Comum":
-                                        query = query.OrderBy(row => row.PriceGasolinaComum);
-                                        break;
-                                    case "Gasolina Aditivada":
-                                        query = query.OrderBy(row => row.PriceGasolinaAditivada);
-                                        break;
-                                    case "Disel":
-                                        query = query.OrderBy(row => row.PriceDisel);
-                                        break;
-                                    case "Gás":
-                                        query = query.OrderBy(row => row.PriceGas);
-                                        break;
-                                    default:
-                                        query = query.OrderBy(row => row.PriceGasolinaComum);
-                                        break;
-
-                                }
-                            }
-                            else
-                            {
-                                query = query.OrderBy(row => row.PriceGasolinaComum);
-                            }
-
-                            break;
-
-                        default:
-                            query = query.OrderBy(row => row.PriceGasolinaComum);
-                            break;
-
-                    }
-                }
-                else
-                {
-                    query = query.OrderBy(row => row.PriceGasolinaComum);
-                }
+                
 
                 gasStationsDTO = query.Select(row => new GasStationsDTO()
                 {
@@ -167,9 +92,97 @@ namespace AbasteceMais.Services.Service
                     CityID = row.CityID,
                     StateID = row.StateID,
                     CreatedOn = row.CreatedOn.ToString(),
-                    UpdatedOn = row.UpdatedOn.ToString()
+                    UpdatedOn = row.UpdatedOn.ToString(),
+                    distance = ""
 
-                }).Take(20).ToList();
+                }).ToList();
+
+                foreach( var gas in gasStationsDTO)
+                {
+
+                    double lat = -30.076721; 
+                    double longui = -51.031796;
+
+                    gas.distance = getDistance(Convert.ToDouble(gas.Latitude), Convert.ToDouble(gas.Longitude), lat, longui ).ToString();
+                };
+
+                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Order))
+                {
+                    switch (gasStationsParametersGetAll.Order)
+                    {
+                        case "More Relevant":
+
+                            switch (gasStationsParametersGetAll.TypeGas)
+                            {
+                                case "Gasolina Comum":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                                    break;
+                                case "Gasolina Aditivada":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaAditivada)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                                    break;
+                                case "Disel":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceDisel)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                                    break;
+                                case "Gás":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGas)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                                    break;
+                                default:
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                                    break;
+                            }
+                            break;
+
+                        case "Highest Price":
+
+                            switch (gasStationsParametersGetAll.TypeGas)
+                            {
+                                case "Gasolina Comum":
+                                    gasStationsDTO = gasStationsDTO.OrderByDescending(o => Convert.ToDecimal(o.PriceGasolinaComum)).Take(30).ToList();
+                                    break;
+                                case "Gasolina Aditivada":
+                                    gasStationsDTO = gasStationsDTO.OrderByDescending(o => Convert.ToDecimal(o.PriceGasolinaAditivada)).Take(30).ToList();
+                                    break;
+                                case "Disel":
+                                    gasStationsDTO = gasStationsDTO.OrderByDescending(o => Convert.ToDecimal(o.PriceDisel)).Take(30).ToList();
+                                    break;
+                                case "Gás":
+                                    gasStationsDTO = gasStationsDTO.OrderByDescending(o => Convert.ToDecimal(o.PriceGas)).Take(30).ToList();
+                                    break;
+                                default:
+                                    gasStationsDTO = gasStationsDTO.OrderByDescending(o => Convert.ToDecimal(o.PriceGasolinaComum)).Take(30).ToList();
+                                    break;
+                            }
+
+                            break;
+
+                        case "Lower Price":
+
+                            switch (gasStationsParametersGetAll.TypeGas)
+                            {
+                                case "Gasolina Comum":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).Take(30).ToList();
+                                    break;
+                                case "Gasolina Aditivada":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaAditivada)).Take(30).ToList();
+                                    break;
+                                case "Disel":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceDisel)).Take(30).ToList();
+                                    break;
+                                case "Gás":
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGas)).Take(30).ToList();
+                                    break;
+                                default:
+                                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).Take(30).ToList();
+                                    break;
+                            }
+
+                            break;
+                    }
+                }
+                else
+                {
+                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                }
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }
@@ -179,6 +192,7 @@ namespace AbasteceMais.Services.Service
             }
 
             return gasStationsDTO as IList<GasStationsDTO>;
+
         }
 
         public GasStationsDTO GetGasStationsByID(GasStationsParametersID gasStationsParametersID, out ReturnValues returnValues)
@@ -644,6 +658,80 @@ namespace AbasteceMais.Services.Service
             return starsDTO;
         }
 
+
+        public UpdatePricesGasStationDTO UpdatePriceGasStations(UpdatePriicesParameters updatePriicesParameters, out ReturnValues returnValues)
+        {
+            GasStation gasstation;
+            UpdatePricesGasStation updatepricesgasstation;
+            UpdatePricesGasStationDTO updatePricesGasStationDTO = null;
+            returnValues = new ReturnValues();
+
+            int GasstationID = Convert.ToInt32(updatePriicesParameters.GasstationID);
+
+            try
+            {
+                gasstation = _unitOfWork.GasStationRepository.Get(row => row.ID == GasstationID);
+                if (gasstation == null)
+                {
+                    returnValues.SetReturnValues(true, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                    return updatePricesGasStationDTO;
+
+                };
+
+                if (updatePriicesParameters.GasolinaComum > 0)
+                {
+                    gasstation.PriceGasolinaComum = updatePriicesParameters.GasolinaComum;                   
+                };
+
+
+                if (updatePriicesParameters.GasolinaAditivada > 0)
+                {
+                    gasstation.PriceGasolinaAditivada = updatePriicesParameters.GasolinaAditivada;
+                };
+               
+                if (updatePriicesParameters.Gas > 0)
+                {
+                    gasstation.PriceGas = updatePriicesParameters.Gas;
+                };
+
+                if (updatePriicesParameters.Disel > 0)
+                {
+                    gasstation.PriceDisel = updatePriicesParameters.Disel;
+                }
+
+
+                _unitOfWork.GasStationRepository.Update(gasstation);
+                _unitOfWork.PersistChanges();
+
+                updatepricesgasstation = new UpdatePricesGasStation()
+                {
+                    GasStationID = updatePriicesParameters.GasstationID,
+                    RegistrationID = updatePriicesParameters.RegistrationID,                  
+                    PriceGasolinaComum = updatePriicesParameters.GasolinaComum > 0 ? updatePriicesParameters.GasolinaComum : 0 ,
+                    PriceGasolinaAditivada = updatePriicesParameters.GasolinaAditivada > 0 ? updatePriicesParameters.GasolinaAditivada : 0,
+                    PriceGas = updatePriicesParameters.Gas > 0 ? updatePriicesParameters.Gas : 0,
+                    PriceDisel = updatePriicesParameters.Disel > 0 ? updatePriicesParameters.Disel : 0,
+                    CreatedOn = DateTime.Now,
+                };
+
+                _unitOfWork.UpdatePricesGasStationRepository.Insert(updatepricesgasstation);
+                _unitOfWork.PersistChanges();
+
+                updatePricesGasStationDTO = new UpdatePricesGasStationDTO
+                {
+                    ID = updatepricesgasstation.ID.ToString()
+                };
+
+                returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
+            }
+            catch (Exception ex)
+            {
+                returnValues.SetReturnValues(true, ErrorCodes.InternalError, ex.Message);
+            }
+
+            return updatePricesGasStationDTO;
+        }
+
         #endregion
 
         #region PRIVATE_METHODS
@@ -670,6 +758,28 @@ namespace AbasteceMais.Services.Service
             return value;
 
         }
+
+        private double getDistance(double latGas, double longiGas, double lat, double longi)
+        {
+
+            double distance = 999;
+
+            if(latGas >= -90 && latGas <= 90 && longiGas >= -90 && longiGas <= 90 && lat >= -90 && lat <= 90 && longi >= -90 && longi <= 90)
+            {
+
+                var sCoord = new GeoCoordinate(lat, longi);
+
+                var eCoord = new GeoCoordinate(latGas, longiGas);
+
+                double distanceM = sCoord.GetDistanceTo(eCoord);
+
+                distance = distanceM / 1000;
+            }
+
+            return distance;
+        }
         #endregion
+
+
     }
 }

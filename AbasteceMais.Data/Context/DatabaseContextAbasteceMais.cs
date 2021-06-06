@@ -34,6 +34,8 @@ namespace AbasteceMais.Data.Context
 
         public virtual DbSet<Comment> Comments { get; set; }
 
+        public virtual DbSet<UpdatePricesGasStation> UpdatePricesGasStations { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GasStation>()
@@ -49,6 +51,22 @@ namespace AbasteceMais.Data.Context
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<GasStation>()
+                .Property(e => e.PriceGas)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<UpdatePricesGasStation>()
+                .Property(e => e.PriceGasolinaComum)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<UpdatePricesGasStation>()
+                .Property(e => e.PriceGasolinaAditivada)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<UpdatePricesGasStation>()
+                .Property(e => e.PriceDisel)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<UpdatePricesGasStation>()
                 .Property(e => e.PriceGas)
                 .HasPrecision(19, 4);
         }
