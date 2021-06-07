@@ -11,6 +11,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
 using System.Device.Location;
+using System.Net;
+using System.Text;
+using System.IO;
+using System.Security.Cryptography;
+using System.Configuration;
+using Newtonsoft.Json.Linq;
 
 namespace AbasteceMais.Services.Service
 {
@@ -32,7 +38,7 @@ namespace AbasteceMais.Services.Service
             IList<GasStationsDTO> gasStationsDTO = null;
             returnValues = new ReturnValues();
 
-
+            
 
             try
             {
@@ -104,6 +110,9 @@ namespace AbasteceMais.Services.Service
                     double longui = -51.031796;
 
                     gas.distance = getDistance(Convert.ToDouble(gas.Latitude), Convert.ToDouble(gas.Longitude), lat, longui ).ToString();
+
+                    //gas.distance = getDistanceGoogle(lat.ToString() + "," + longui.ToString(), Convert.ToDouble(gas.Latitude).ToString()+ "," +Convert.ToDouble(gas.Longitude).ToString()).ToString();
+
                 };
 
                 if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Order))
@@ -778,6 +787,54 @@ namespace AbasteceMais.Services.Service
 
             return distance;
         }
+
+        public double getDistanceGoogle(string origin, string destination)
+        {
+            double distance = 0;
+            string requesturl = "https://maps.googleapis.com/maps/api/directions/json?origin="+ origin + "&destination="+ destination + "&key=AIzaSyAOcpKqOziNtfx-3Vt03jj9b50dO-ipJaU";
+            string content = fileGetContents(requesturl);
+            JObject o = JObject.Parse(content);
+            try
+            {
+                distance = (double)o.SelectToken("routes[0].legs[0].distance.value");
+
+                distance = distance / 1000;
+
+                return distance;
+            }
+            catch
+            {
+                return distance;
+            }
+
+            return distance;
+
+        }
+
+        protected string fileGetContents(string fileName)
+        {
+            string sContents = string.Empty;
+            string me = string.Empty;
+            try
+            {
+                if (fileName.ToLower().IndexOf("https:") > -1)
+                {
+                    System.Net.WebClient wc = new System.Net.WebClient();
+                    byte[] response = wc.DownloadData(fileName);
+                    sContents = System.Text.Encoding.ASCII.GetString(response);
+
+                }
+                else
+                {
+                    System.IO.StreamReader sr = new System.IO.StreamReader(fileName);
+                    sContents = sr.ReadToEnd();
+                    sr.Close();
+                }
+            }
+            catch { sContents = "unable to connect to server "; }
+            return sContents;
+        }
+
         #endregion
 
 
