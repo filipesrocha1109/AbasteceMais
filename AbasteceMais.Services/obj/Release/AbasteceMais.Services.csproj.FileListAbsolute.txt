@@ -22,3 +22,5 @@ C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.S
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.dll
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.pdb
 C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\obj\Release\AbasteceMais.Services.csproj.AssemblyReference.cache
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\Newtonsoft.Json.dll
+C:\Users\Filipe\source\repos\FACULDADE\Abastece Mais\AbasteceMais\AbasteceMais.Services\bin\Release\Newtonsoft.Json.xml

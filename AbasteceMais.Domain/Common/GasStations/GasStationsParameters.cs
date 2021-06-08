@@ -17,6 +17,10 @@ namespace AbasteceMais.Domain.Common.GasStations
         public string DistrictID { get; set; }
 
         public string Order { get; set; }
+
+        public string latitude { get; set; }
+
+        public string longitude { get; set; }
     }
 
     public class GasStationsParametersCreate

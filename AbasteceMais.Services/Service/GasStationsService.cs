@@ -103,12 +103,17 @@ namespace AbasteceMais.Services.Service
 
                 }).ToList();
 
-                foreach( var gas in gasStationsDTO)
+                double lat = -30.076721;
+                double longui = -51.031796;
+
+                if (!String.IsNullOrEmpty(gasStationsParametersGetAll.latitude) && !String.IsNullOrEmpty(gasStationsParametersGetAll.longitude))
                 {
+                    lat = Convert.ToDouble(gasStationsParametersGetAll.latitude);
+                    longui = Convert.ToDouble(gasStationsParametersGetAll.longitude);
+                }
 
-                    double lat = -30.076721; 
-                    double longui = -51.031796;
-
+                foreach ( var gas in gasStationsDTO)
+                {                                   
                     gas.distance = getDistance(Convert.ToDouble(gas.Latitude), Convert.ToDouble(gas.Longitude), lat, longui ).ToString();
 
                     //gas.distance = getDistanceGoogle(lat.ToString() + "," + longui.ToString(), Convert.ToDouble(gas.Latitude).ToString()+ "," +Convert.ToDouble(gas.Longitude).ToString()).ToString();
