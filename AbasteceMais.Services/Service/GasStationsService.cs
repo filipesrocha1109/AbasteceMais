@@ -38,8 +38,6 @@ namespace AbasteceMais.Services.Service
             IList<GasStationsDTO> gasStationsDTO = null;
             returnValues = new ReturnValues();
 
-            
-
             try
             {
                 var query = _unitOfWork.GasStationRepository.QueryableObject();
@@ -99,7 +97,8 @@ namespace AbasteceMais.Services.Service
                     StateID = row.StateID,
                     CreatedOn = row.CreatedOn.ToString(),
                     UpdatedOn = row.UpdatedOn.ToString(),
-                    distance = ""
+                    distance = "",
+                    lastUpdatePrice =""
 
                 }).ToList();
 
@@ -198,6 +197,12 @@ namespace AbasteceMais.Services.Service
                     gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
                 }
 
+                foreach (var gas in gasStationsDTO)
+                {
+                   
+                    gas.lastUpdatePrice = GetlastUpdatePrice(gas.ID);
+                };
+
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }
             catch (Exception ex)
@@ -252,6 +257,9 @@ namespace AbasteceMais.Services.Service
                     UpdatedOn = gasStation.UpdatedOn.ToString()
 
                 };
+
+                gasStationsDTO.lastUpdatePrice = GetlastUpdatePrice(gasStationsDTO.ID);
+                gasStationsDTO.NamelastUpdatePrice = GetNamelastUpdatePrice(gasStationsDTO.ID);
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }
@@ -549,6 +557,11 @@ namespace AbasteceMais.Services.Service
 
                 }).ToList();
 
+                foreach (var comment in commentsDTO)
+                {
+                    comment.RegistrationID = GetNameComment(comment.RegistrationID);
+                };
+
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
             }
             catch (Exception ex)
@@ -838,6 +851,80 @@ namespace AbasteceMais.Services.Service
             }
             catch { sContents = "unable to connect to server "; }
             return sContents;
+        }
+
+        private string GetNameComment(string id)
+        {
+            string value = null;
+            Registration registration;
+
+            int ID = !String.IsNullOrEmpty(id) ? Convert.ToInt32(id) : -1 ; 
+
+            if(ID >= 0)
+            {
+                registration = _unitOfWork.RegistrationRepository.Get(row => row.ID == ID);
+
+                if(registration != null)
+                {
+                    value = registration.Name;
+                }
+
+            }
+            
+            return value;
+
+        }
+
+        private string GetlastUpdatePrice(string id)
+        {
+            string value = null;
+            IList<UpdatePricesGasStationDTO> updatePricesGasStationDTO = null;
+
+            updatePricesGasStationDTO =  _unitOfWork.UpdatePricesGasStationRepository.QueryableObject()
+                .Where(row => row.GasStationID == id)
+                .OrderBy(row => row.CreatedOn)
+                .Take(1)
+                .Select(row => new UpdatePricesGasStationDTO()
+                {
+                    CreatedOn = row.CreatedOn.ToString(),
+
+
+                }).ToList();
+
+            if (updatePricesGasStationDTO.Count > 0)
+            {
+                value = !String.IsNullOrEmpty(updatePricesGasStationDTO[0].CreatedOn) ? Utils.ConvertDate(updatePricesGasStationDTO[0].CreatedOn): null ;
+            }
+
+            
+
+            return value;
+
+        }
+        private string GetNamelastUpdatePrice(string id)
+        {
+            string value = null;
+            IList<UpdatePricesGasStationDTO> updatePricesGasStationDTO = null;
+
+            updatePricesGasStationDTO = _unitOfWork.UpdatePricesGasStationRepository.QueryableObject()
+                .Where(row => row.GasStationID == id)
+                .OrderBy(row => row.CreatedOn)
+                .Take(1)
+                .Select(row => new UpdatePricesGasStationDTO()
+                {
+                    RegistrationID = row.RegistrationID,
+
+                }).ToList();
+
+            if (updatePricesGasStationDTO.Count > 0)
+            {
+                value = !String.IsNullOrEmpty(updatePricesGasStationDTO[0].RegistrationID) ? GetNameComment(updatePricesGasStationDTO[0].RegistrationID) : null;
+            }
+
+
+
+            return value;
+
         }
 
         #endregion

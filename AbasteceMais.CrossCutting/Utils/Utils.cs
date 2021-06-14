@@ -107,7 +107,12 @@ namespace AbasteceMais.CrossCutting.Utils
 
             if (!string.IsNullOrEmpty(value))
             {
-                output = Convert.ToDateTime(value).ToString("dd/MM/yyyy HH:mm:ss");
+                value = value.Replace(" PM", "").Replace(" AM", "");
+
+                DateTime DateValue = DateTime.Parse(value);
+
+                output = DateValue.ToString("dd/MM/yyyy");
+
             };
 
             return output;

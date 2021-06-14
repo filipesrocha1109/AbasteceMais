@@ -49,5 +49,9 @@ namespace AbasteceMais.Domain.DTOs.GasStation
         public string UpdatedOn { get; set; }
 
         public string distance { get; set; }
+        
+        public string lastUpdatePrice { get; set; }
+
+        public string NamelastUpdatePrice { get; set; }
     }
 }
