@@ -114,9 +114,6 @@ namespace AbasteceMais.Services.Service
                 foreach ( var gas in gasStationsDTO)
                 {                                   
                     gas.distance = getDistance(Convert.ToDouble(gas.Latitude), Convert.ToDouble(gas.Longitude), lat, longui ).ToString();
-
-                    //gas.distance = getDistanceGoogle(lat.ToString() + "," + longui.ToString(), Convert.ToDouble(gas.Latitude).ToString()+ "," +Convert.ToDouble(gas.Longitude).ToString()).ToString();
-
                 };
 
                 if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Order))
@@ -194,13 +191,15 @@ namespace AbasteceMais.Services.Service
                 }
                 else
                 {
-                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).OrderBy(o => Convert.ToDouble(o.distance)).Take(30).ToList();
+                    gasStationsDTO = gasStationsDTO.OrderBy(o => Convert.ToDecimal(o.PriceGasolinaComum)).OrderBy(o => Convert.ToDouble(o.distance)).Take(20).ToList();
                 }
 
                 foreach (var gas in gasStationsDTO)
                 {
                    
                     gas.lastUpdatePrice = GetlastUpdatePrice(gas.ID);
+
+                    //gas.distance = getDistanceGoogle(lat.ToString() + "," + longui.ToString(), Convert.ToDouble(gas.Latitude).ToString()+ "," +Convert.ToDouble(gas.Longitude).ToString()).ToString();
                 };
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));
@@ -685,7 +684,6 @@ namespace AbasteceMais.Services.Service
             return starsDTO;
         }
 
-
         public UpdatePricesGasStationDTO UpdatePriceGasStations(UpdatePriicesParameters updatePriicesParameters, out ReturnValues returnValues)
         {
             GasStation gasstation;
@@ -882,7 +880,7 @@ namespace AbasteceMais.Services.Service
 
             updatePricesGasStationDTO =  _unitOfWork.UpdatePricesGasStationRepository.QueryableObject()
                 .Where(row => row.GasStationID == id)
-                .OrderBy(row => row.CreatedOn)
+                .OrderByDescending(row => row.CreatedOn)
                 .Take(1)
                 .Select(row => new UpdatePricesGasStationDTO()
                 {
@@ -901,6 +899,7 @@ namespace AbasteceMais.Services.Service
             return value;
 
         }
+
         private string GetNamelastUpdatePrice(string id)
         {
             string value = null;
