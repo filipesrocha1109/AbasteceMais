@@ -58,13 +58,13 @@ namespace AbasteceMais.Domain.Common.GasStations
         [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'Number' is required")]
         public string Number { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'District' is required")]
+
         public string DistrictID { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'City' is required")]
+
         public string CityID { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Field 'State' is required")]
+
         public string StateID { get; set; }
 
     }

@@ -40,7 +40,8 @@ namespace AbasteceMais.Services.Service
 
             try
             {
-                var query = _unitOfWork.GasStationRepository.QueryableObject();
+                var query = _unitOfWork.GasStationRepository.QueryableObject()
+                    .Where(row => row.Status == true);
 
                 if (!String.IsNullOrEmpty(gasStationsParametersGetAll.Name))
                 {
@@ -283,7 +284,7 @@ namespace AbasteceMais.Services.Service
             {
                 gasStation = new GasStation()
                 {
-                    Status = true,
+                    Status = false,
                     Name = gasStationsParametersCreate.Name,
                     Phone = string.IsNullOrEmpty(gasStationsParametersCreate.Phone) ? null : gasStationsParametersCreate.Phone,
                     GasolinaComum = string.IsNullOrEmpty(gasStationsParametersCreate.GasolinaComum) ? false :  Convert.ToBoolean(gasStationsParametersCreate.GasolinaComum) ,
