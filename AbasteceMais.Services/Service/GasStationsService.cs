@@ -706,24 +706,87 @@ namespace AbasteceMais.Services.Service
 
                 if (updatePriicesParameters.GasolinaComum > 0)
                 {
-                    gasstation.PriceGasolinaComum = updatePriicesParameters.GasolinaComum;                   
-                };
+                    if (gasstation.PriceGasolinaComum > 0)
+                    {
+                        if (updatePriicesParameters.GasolinaComum <= gasstation.PriceGasolinaComum + 1 &&  updatePriicesParameters.GasolinaComum >= gasstation.PriceGasolinaComum - 1 )
+                        {
+                            gasstation.PriceGasolinaComum = updatePriicesParameters.GasolinaComum;
+                        }
+                        else
+                        {
+                            returnValues.SetReturnValues(true, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                            return updatePricesGasStationDTO;
+                        }
 
+                    }
+                    else
+                    {
+                        gasstation.PriceGasolinaComum = updatePriicesParameters.GasolinaComum;
+                    }                  
+                };
 
                 if (updatePriicesParameters.GasolinaAditivada > 0)
                 {
-                    gasstation.PriceGasolinaAditivada = updatePriicesParameters.GasolinaAditivada;
+                    if (gasstation.PriceGasolinaAditivada > 0)
+                    {
+                        if (updatePriicesParameters.GasolinaAditivada <= gasstation.PriceGasolinaAditivada + 1 && updatePriicesParameters.GasolinaAditivada >= gasstation.PriceGasolinaAditivada - 1)
+                        {
+                            gasstation.PriceGasolinaAditivada = updatePriicesParameters.GasolinaAditivada;
+                        }
+                        else
+                        {
+                            returnValues.SetReturnValues(true, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                            return updatePricesGasStationDTO;
+                        }
+
+                    }
+                    else
+                    {
+                        gasstation.PriceGasolinaAditivada = updatePriicesParameters.GasolinaAditivada;
+                    }
                 };
-               
+
                 if (updatePriicesParameters.Gas > 0)
                 {
-                    gasstation.PriceGas = updatePriicesParameters.Gas;
+                    if (gasstation.PriceGas > 0)
+                    {
+                        if (updatePriicesParameters.Gas <= gasstation.PriceGas + 1 && updatePriicesParameters.Gas >= gasstation.PriceGas - 1)
+                        {
+                            gasstation.PriceGas = updatePriicesParameters.Gas;
+                        }
+                        else
+                        {
+                            returnValues.SetReturnValues(true, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                            return updatePricesGasStationDTO;
+                        }
+
+                    }
+                    else
+                    {
+                        gasstation.PriceGas = updatePriicesParameters.Gas;
+                    }
                 };
 
                 if (updatePriicesParameters.Disel > 0)
                 {
-                    gasstation.PriceDisel = updatePriicesParameters.Disel;
-                }
+                    if (gasstation.PriceDisel > 0)
+                    {
+                        if (updatePriicesParameters.Disel <= gasstation.PriceDisel + 1 && updatePriicesParameters.Disel >= gasstation.PriceDisel - 1)
+                        {
+                            gasstation.PriceDisel = updatePriicesParameters.Disel;
+                        }
+                        else
+                        {
+                            returnValues.SetReturnValues(true, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.NotFound));
+                            return updatePricesGasStationDTO;
+                        }
+
+                    }
+                    else
+                    {
+                        gasstation.PriceDisel = updatePriicesParameters.Disel;
+                    }
+                };
 
 
                 _unitOfWork.GasStationRepository.Update(gasstation);
@@ -745,7 +808,16 @@ namespace AbasteceMais.Services.Service
 
                 updatePricesGasStationDTO = new UpdatePricesGasStationDTO
                 {
-                    ID = updatepricesgasstation.ID.ToString()
+                    ID = updatepricesgasstation.ID.ToString(),
+                    GasStationID = updatepricesgasstation.GasStationID,
+                    RegistrationID = updatepricesgasstation.RegistrationID,
+                    PriceGasolinaComum = updatepricesgasstation.PriceGasolinaComum.ToString(),
+                    PriceGasolinaAditivada = updatepricesgasstation.PriceGasolinaAditivada.ToString(),
+                    PriceDisel = updatepricesgasstation.PriceDisel.ToString(),
+                    PriceGas = updatepricesgasstation.PriceGas.ToString(),
+                    CreatedOn = updatepricesgasstation.CreatedOn.ToString()
+
+
                 };
 
                 returnValues.SetReturnValues(false, ErrorCodes.Ok, Utils.GetEnumDescription(ErrorCodes.Ok));

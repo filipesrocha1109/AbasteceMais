@@ -5,14 +5,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>\\servidor\AbasteceMais\web</_PublishTargetUrl>
-    <History>True|2021-06-23T00:06:24.5227841Z;True|2021-06-17T23:32:00.5001774-03:00;True|2021-06-17T20:00:05.4751507-03:00;False|2021-03-24T20:28:02.4280800-03:00;True|2021-03-24T17:55:25.9571464-03:00;</History>
+    <History>True|2021-06-26T02:54:16.0602087Z;True|2021-06-22T21:06:24.5227841-03:00;True|2021-06-17T23:32:00.5001774-03:00;True|2021-06-17T20:00:05.4751507-03:00;False|2021-03-24T20:28:02.4280800-03:00;True|2021-03-24T17:55:25.9571464-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AbasteceMais.API.dll">
-      <publishTime>06/22/2021 21:04:05</publishTime>
+      <publishTime>06/25/2021 23:51:47</publishTime>
     </File>
     <File Include="bin/AbasteceMais.API.pdb">
-      <publishTime>06/22/2021 21:04:05</publishTime>
+      <publishTime>06/25/2021 23:51:47</publishTime>
     </File>
     <File Include="bin/AbasteceMais.CrossCutting.dll">
       <publishTime>06/14/2021 20:38:35</publishTime>
@@ -21,13 +21,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/14/2021 20:38:35</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Data.dll">
-      <publishTime>06/22/2021 21:04:02</publishTime>
+      <publishTime>06/25/2021 23:51:42</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Data.dll.config">
       <publishTime>04/06/2021 01:20:32</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Data.pdb">
-      <publishTime>06/22/2021 21:04:02</publishTime>
+      <publishTime>06/25/2021 23:51:42</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Domain.dll">
       <publishTime>06/22/2021 21:04:01</publishTime>
@@ -39,10 +39,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/22/2021 21:04:01</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Services.dll">
-      <publishTime>06/22/2021 21:04:03</publishTime>
+      <publishTime>06/25/2021 23:51:43</publishTime>
     </File>
     <File Include="bin/AbasteceMais.Services.pdb">
-      <publishTime>06/22/2021 21:04:03</publishTime>
+      <publishTime>06/25/2021 23:51:43</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>04/06/2021 01:20:33</publishTime>
